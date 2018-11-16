@@ -1,6 +1,7 @@
 
 import greenfoot.*;
 
+
 /**
  *
  * @author R. Springer
@@ -10,6 +11,7 @@ public class Hero extends Mover {
     private final double gravity;
     private final double acc;
     private final double drag;
+    boolean isdown;
 
     public Hero() {
         super();
@@ -22,7 +24,7 @@ public class Hero extends Mover {
     @Override
     public void act() {
         handleInput();
-        
+        respawn();
         velocityX *= drag;
         velocityY += acc;
         if (velocityY > gravity) {
@@ -35,12 +37,25 @@ public class Hero extends Mover {
                 getWorld().removeObject(this);
                 break;
             }
+         
+         
+           
             
         }
-             if(isTouching(Lava.class))
+            /* if(isTouching(Lava.class))
     {
         getWorld().removeObject(this);
+    }*/
     }
+    public void respawn()
+    {
+        
+        if( isTouching(Lava.class) && isdown == true )
+        {
+            
+           setLocation(2754,1273);
+           
+        }
     }
     public void Remove()
     {

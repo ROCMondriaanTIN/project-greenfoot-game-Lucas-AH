@@ -75,7 +75,7 @@ public class TileFactory {
                 tile.isSolid = true;
                 break;
             case 59:
-                 tile = new Tile("coinGold.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                 tile = new goldCoin("coinGold.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                  break;
             case 61:
                  tile = new Tile("dirt.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
@@ -160,11 +160,24 @@ public class TileFactory {
                  tile = new Lava("liquidLavaTop_mid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                  
                  break;
-                 
-            case 215:
+            case 143:
+                 tile = new water("liquidWater.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                  
+                 break;
+                 case 215:
                  tile = new Tile("dirtCenter_rounded.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                  tile.isSolid = true;
                  break;
+                 
+                 case 145:
+                 tile = new water("liquidWater.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                  
+                 break;
+                 
+                 case 200:
+                 tile = new greenflag("flagGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                 break;
+                 
                  default:
                 tile = new Tile("grassMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;

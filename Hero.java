@@ -35,34 +35,18 @@ public class Hero extends Mover {
                 getWorld().removeObject(this);
                 break;
             }
-            
         }
-             if(isTouching(Lava.class))
-    {
-        getWorld().removeObject(this);
     }
-    }
-    public void Remove()
-    {
-         if(isTouching(Lava.class))
-    {
-        getWorld().removeObject(this);
-    }
-    }
-    public String Position()
-    {
-       String myPosition = "X" + getX() + " " + "Y" + getY();
-       return myPosition;
-    }
+
     public void handleInput() {
-        if (Greenfoot.isKeyDown("up")) {
-            velocityY = -10;
+        if (Greenfoot.isKeyDown("w")) {
+            velocityY = -30;
         }
 
-        if (Greenfoot.isKeyDown("left")) {
-            velocityX = -10;
-        } else if (Greenfoot.isKeyDown("right")) {
-            velocityX = 10;
+        if (Greenfoot.isKeyDown("a")) {
+            velocityX = -2;
+        } else if (Greenfoot.isKeyDown("d")) {
+            velocityX = 2;
         }
     }
 

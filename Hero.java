@@ -12,6 +12,8 @@ public class Hero extends Mover {
     private final double acc;
     private final double drag;
     boolean isdown;
+    boolean isFalling;
+    
 
     public Hero() {
         super();
@@ -25,6 +27,8 @@ public class Hero extends Mover {
     public void act() {
         handleInput();
         respawn();
+        OnGround();
+        
         velocityX *= drag;
         velocityY += acc;
         if (velocityY > gravity) {
@@ -47,6 +51,14 @@ public class Hero extends Mover {
         getWorld().removeObject(this);
     }*/
     }
+    /*public void checkpoint()
+    {
+        boolean IsDown;
+     if(isTouching(greenflag.class))
+     {
+         is
+        }
+    }*/
     public void respawn()
     {
         
@@ -56,6 +68,12 @@ public class Hero extends Mover {
            setLocation(2754,1273);
            
         }
+    }
+    public boolean  OnGround()
+    {
+        Actor onder = getOneObjectAtOffset(0,getImage().getHeight()/2,Tile.class);
+        return onder != null;
+        
     }
     public void Remove()
     {
@@ -70,12 +88,19 @@ public class Hero extends Mover {
        return myPosition;
     }
     public void handleInput() {
-        if (Greenfoot.isKeyDown("up")) {
-            velocityY = -10;
+        if (Greenfoot.isKeyDown("up") && OnGround()) {
+            velocityY = -13;
+            setImage("p1_jump.png");
+            isFalling = true;
+        }
+         else
+        {
+            setImage("p1_jump.png");
         }
 
         if (Greenfoot.isKeyDown("left")) {
             velocityX = -10;
+            
         } else if (Greenfoot.isKeyDown("right")) {
             velocityX = 10;
         }

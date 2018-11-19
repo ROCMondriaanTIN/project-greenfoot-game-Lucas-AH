@@ -178,6 +178,10 @@ public class TileFactory {
                  tile = new greenflag("flagGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                  break;
                  
+                 case 203:
+                    tile =  new door("door_closedMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                 break;
+                 
                  default:
                 tile = new Tile("grassMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;

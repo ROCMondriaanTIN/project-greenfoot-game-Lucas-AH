@@ -46,6 +46,7 @@ public class Hero extends Mover {
            
             
         }
+        
             /* if(isTouching(Lava.class))
     {
         getWorld().removeObject(this);
@@ -62,7 +63,7 @@ public class Hero extends Mover {
     public void respawn()
     {
         
-        if( isTouching(Lava.class) && isdown == true )
+        if(flag() )
         {
             
            setLocation(2754,1273);
@@ -82,28 +83,56 @@ public class Hero extends Mover {
         getWorld().removeObject(this);
     }
     }
+    public boolean flag()
+    {
+        Actor onder = getOneObjectAtOffset(0,getImage().getHeight()/2,greenflag.class);
+        return onder != null;
+    }
     public String Position()
     {
        String myPosition = "X" + getX() + " " + "Y" + getY();
        return myPosition;
     }
+    public void Walking()
+    {
+        String S ="images/p1_walk/pngp1_walk";
+        if (y != 12)
+        {
+            teller
+        }
+    }
+    
     public void handleInput() {
         if (Greenfoot.isKeyDown("up") && OnGround()) {
             velocityY = -13;
             setImage("p1_jump.png");
             isFalling = true;
         }
-         else
+        /* else
         {
-            setImage("p1_jump.png");
+            setImage("p1.png");
+        }*/
+      if(Greenfoot.isKeyDown("up"))
+      {
+          setImage("p1_jump.png");
+        }
+        if(OnGround())
+        {
+            setImage("p1.png");
         }
 
         if (Greenfoot.isKeyDown("left")) {
             velocityX = -10;
             
+            
         } else if (Greenfoot.isKeyDown("right")) {
             velocityX = 10;
+            setImage("p1_walk01.png");
+            //setImage("p1_walk05.png");
+            //setImage("p1_walk04.png");
         }
+     
+        
     }
 
     public int getWidth() {

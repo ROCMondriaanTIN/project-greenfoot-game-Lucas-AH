@@ -13,7 +13,23 @@ public class Hero extends Mover {
     private final double drag;
     boolean isdown;
     boolean isFalling;
+       private GreenfootImage run1r = new GreenfootImage("p1_walk01.png");
+    private GreenfootImage run2r = new GreenfootImage("p1_walk02.png");
+    private GreenfootImage run3r = new GreenfootImage("p1_walk03.png");
+    private GreenfootImage run4r = new GreenfootImage("p1_walk04.png");
+    private GreenfootImage run5r = new GreenfootImage("p1_walk05.png");
+    private GreenfootImage run6r = new GreenfootImage("p1_walk06.png");
     
+    private GreenfootImage run1l = new GreenfootImage("p1_walk01.png");
+    
+    private GreenfootImage run2l = new GreenfootImage("p1_walk02.png");
+    private GreenfootImage run3l = new GreenfootImage("p1_walk03.png");
+    private GreenfootImage run4l = new GreenfootImage("p1_walk04.png");
+    private GreenfootImage run5l = new GreenfootImage("p1_walk05.png");
+    private GreenfootImage run6l = new GreenfootImage("p1_walk06.png");
+    
+    private int frame = 0;
+    private int animationCounter = 0;
 
     public Hero() {
         super();
@@ -28,6 +44,7 @@ public class Hero extends Mover {
         handleInput();
         respawn();
         OnGround();
+        //RightWalk();
         
         velocityX *= drag;
         velocityY += acc;
@@ -60,6 +77,122 @@ public class Hero extends Mover {
          is
         }
     }*/
+    public void RightWalk()
+    {
+          
+        if(animationCounter % 4 == 0)
+        {
+            rightWalkingAnimation();
+        }
+     
+    }
+    public void rightWalkingAnimation()
+    {
+        if(frame == 0)
+        {
+            setImage(run1r);
+        }
+        else if(frame == 1)
+        {
+            setImage(run2r);
+        }
+        else if(frame == 2)
+        {
+            setImage(run3r);
+        }
+        else if(frame == 3)
+        {
+            setImage(run4r);
+        }
+        else if(frame == 4)
+        {
+            setImage(run5r);
+        }
+        else if(frame == 5)
+        {
+            setImage(run6r);
+            frame = 0;
+        }
+        frame++;
+        return;
+    }
+    
+    public void LeftWalk()
+    {
+          
+        if(animationCounter % 4 == 0)
+        {
+           LeftAnimation();
+        }
+     
+    }
+    public void leftImage()
+    {
+        setImage(run1l);
+        getImage().mirrorHorizontally();
+        setImage(run2l);
+        getImage().mirrorHorizontally();
+        setImage(run3l);
+        getImage().mirrorHorizontally();
+        setImage(run4l);
+        getImage().mirrorHorizontally();
+        setImage(run5l);
+        getImage().mirrorHorizontally();
+        setImage(run6l);
+        getImage().mirrorHorizontally();
+       
+    }
+    public void LeftAnimation()
+    {
+        /*if(frame == 0)
+        {
+            setImage("p1_walk01.png");
+            getImage().mirrorHorizontally();
+        }*/
+         if(frame == 0)
+        {
+            //setImage(run1l);
+             getImage().mirrorHorizontally();
+             setImage(run1l);
+        }
+        else if(frame == 1)
+        {
+            //setImage(run2l);
+             getImage().mirrorHorizontally();
+             setImage(run2l);
+             
+        }
+        else if(frame == 2)
+        {
+            //setImage(run3l);
+            getImage().mirrorHorizontally();
+            setImage(run3l);
+             
+        }
+        else if(frame == 3)
+        {
+            //setImage(run4l);
+             getImage().mirrorHorizontally();
+             setImage(run4l);
+        }
+        else if(frame == 4)
+        {
+            //setImage(run5l);
+             getImage().mirrorHorizontally();
+             setImage(run5l);
+        }
+        else if(frame == 5)
+        {
+           // setImage(run6l);
+             getImage().mirrorHorizontally();
+              setImage(run6l);
+             
+            frame = 0;
+           
+        }
+        frame++;
+        return;
+    }
     public void respawn()
     {
         
@@ -95,18 +228,28 @@ public class Hero extends Mover {
     }
     public void Walking()
     {
-        String S ="images/p1_walk/pngp1_walk";
-        if (y != 12)
+        /* 
+        int y = 0;
+        
+        
+        String dir ="images/p1_walk/PNG/p1_walk";
+       if (y != 12)
         {
-            teller
+            teller = Integer.toString(y);
+            y ++;
         }
+        else if(y == 12)
+        {
+            y = 1;
+        }*/
+        setImage(/*dir+teller+".png"*/"Walking/p1_walk01" );
     }
     
     public void handleInput() {
         if (Greenfoot.isKeyDown("up") && OnGround()) {
             velocityY = -13;
-            setImage("p1_jump.png");
-            isFalling = true;
+            RightWalk();
+            
         }
         /* else
         {
@@ -118,22 +261,30 @@ public class Hero extends Mover {
         }
         if(OnGround())
         {
-            setImage("p1.png");
+            setImage("p1_front.png");
         }
 
         if (Greenfoot.isKeyDown("left")) {
             velocityX = -10;
+             LeftWalk();
             
             
         } else if (Greenfoot.isKeyDown("right")) {
             velocityX = 10;
-            setImage("p1_walk01.png");
+            //setImage("p1_walk01.png");
             //setImage("p1_walk05.png");
             //setImage("p1_walk04.png");
+            RightWalk();
         }
+       /* else
+        {
+            setImage("p1_front.png");
+        }
+        */
      
         
     }
+    
 
     public int getWidth() {
         return getImage().getWidth();

@@ -21,7 +21,6 @@ public class Hero extends Mover {
     private GreenfootImage run6r = new GreenfootImage("p1_walk06.png");
     
     private GreenfootImage run1l = new GreenfootImage("p1_walk01.png");
-    
     private GreenfootImage run2l = new GreenfootImage("p1_walk02.png");
     private GreenfootImage run3l = new GreenfootImage("p1_walk03.png");
     private GreenfootImage run4l = new GreenfootImage("p1_walk04.png");
@@ -29,6 +28,9 @@ public class Hero extends Mover {
     private GreenfootImage run6l = new GreenfootImage("p1_walk06.png");
     
     private int frame = 0;
+    boolean facingRight = true;
+   public int y;
+  public int teller;
     private int animationCounter = 0;
 
     public Hero() {
@@ -41,9 +43,11 @@ public class Hero extends Mover {
 
     @Override
     public void act() {
+        
         handleInput();
         respawn();
         OnGround();
+        
         //RightWalk();
         
         velocityX *= drag;
@@ -126,71 +130,54 @@ public class Hero extends Mover {
         }
      
     }
-    public void leftImage()
-    {
-        setImage(run1l);
-        getImage().mirrorHorizontally();
-        setImage(run2l);
-        getImage().mirrorHorizontally();
-        setImage(run3l);
-        getImage().mirrorHorizontally();
-        setImage(run4l);
-        getImage().mirrorHorizontally();
-        setImage(run5l);
-        getImage().mirrorHorizontally();
-        setImage(run6l);
-        getImage().mirrorHorizontally();
-       
-    }
+   
     public void LeftAnimation()
     {
-        /*if(frame == 0)
-        {
-            setImage("p1_walk01.png");
-            getImage().mirrorHorizontally();
-        }*/
+       
          if(frame == 0)
         {
-            //setImage(run1l);
+            setImage(run1l);
              getImage().mirrorHorizontally();
-             setImage(run1l);
+             
         }
         else if(frame == 1)
         {
-            //setImage(run2l);
+            setImage(run2l);
              getImage().mirrorHorizontally();
-             setImage(run2l);
+             
              
         }
         else if(frame == 2)
         {
-            //setImage(run3l);
-            getImage().mirrorHorizontally();
             setImage(run3l);
+            getImage().mirrorHorizontally();
+            
              
         }
         else if(frame == 3)
         {
-            //setImage(run4l);
-             getImage().mirrorHorizontally();
-             setImage(run4l);
+            setImage(run4l);
+             //getImage().mirrorHorizontally();
+             
         }
         else if(frame == 4)
         {
-            //setImage(run5l);
-             getImage().mirrorHorizontally();
-             setImage(run5l);
+            setImage(run5l);
+             //getImage().mirrorHorizontally();
+             
         }
         else if(frame == 5)
         {
-           // setImage(run6l);
-             getImage().mirrorHorizontally();
-              setImage(run6l);
+            setImage(run6l);
+            // getImage().mirrorHorizontally();
+              //setImage(run6l);
              
             frame = 0;
            
         }
+        
         frame++;
+        
         return;
     }
     public void respawn()
@@ -226,10 +213,10 @@ public class Hero extends Mover {
        String myPosition = "X" + getX() + " " + "Y" + getY();
        return myPosition;
     }
-    public void Walking()
+    /*public void Walking()
     {
-        /* 
-        int y = 0;
+        
+       
         
         
         String dir ="images/p1_walk/PNG/p1_walk";
@@ -241,9 +228,9 @@ public class Hero extends Mover {
         else if(y == 12)
         {
             y = 1;
-        }*/
-        setImage(/*dir+teller+".png"*/"Walking/p1_walk01" );
-    }
+        }
+        setImage(dir+teller+".png" );
+    }*/
     
     public void handleInput() {
         if (Greenfoot.isKeyDown("up") && OnGround()) {
@@ -266,7 +253,9 @@ public class Hero extends Mover {
 
         if (Greenfoot.isKeyDown("left")) {
             velocityX = -10;
-             LeftWalk();
+            getImage().mirrorHorizontally();
+             //LeftWalk();
+             //getImage().mirrorHorizontally();
             
             
         } else if (Greenfoot.isKeyDown("right")) {
@@ -276,7 +265,11 @@ public class Hero extends Mover {
             //setImage("p1_walk04.png");
             RightWalk();
         }
-       /* else
+        /*if( Greenfoot.isKeyDown("left") == true )
+       {
+           getImage().mirrorHorizontally();
+        }*/
+        /* else
         {
             setImage("p1_front.png");
         }

@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class greenflag extends Tile
 {
-    boolean isdown;
+    
     public greenflag(String image, int width, int heigth) {
         super(image,width,heigth);
     /**
@@ -20,7 +20,7 @@ public class greenflag extends Tile
        if(isTouching(Hero.class))
        {
            setImage("flagGreenHanging.png");
-           isdown = true;
+           
         }
         
     }    

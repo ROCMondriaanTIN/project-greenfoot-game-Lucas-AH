@@ -20,18 +20,23 @@ public class Hero extends Mover {
     private GreenfootImage run5r = new GreenfootImage("p1_walk05.png");
     private GreenfootImage run6r = new GreenfootImage("p1_walk06.png");
     
-    private GreenfootImage run1l = new GreenfootImage("p1_walk01.png");
-    private GreenfootImage run2l = new GreenfootImage("p1_walk02.png");
-    private GreenfootImage run3l = new GreenfootImage("p1_walk03.png");
-    private GreenfootImage run4l = new GreenfootImage("p1_walk04.png");
-    private GreenfootImage run5l = new GreenfootImage("p1_walk05.png");
-    private GreenfootImage run6l = new GreenfootImage("p1_walk06.png");
+    public GreenfootImage run1l = new GreenfootImage("p1_walk01L.png");
+    public GreenfootImage run2l = new GreenfootImage("p1_walk02L.png");
+    public GreenfootImage run3l = new GreenfootImage("p1_walk03L.png");
+   public GreenfootImage run4l = new GreenfootImage("p1_walk04L.png");
+    public GreenfootImage run5l = new GreenfootImage("p1_walk05L.png");
+    public GreenfootImage run6l = new GreenfootImage("p1_walk06L.png");
     
     private int frame = 0;
-    boolean facingRight = true;
-   public int y;
-  public int teller;
+    boolean facingRight  ;
+    boolean facinfLeft;
+    
+  private int frame1 = 0;
     private int animationCounter = 0;
+    public static  int checkPointX = 1109;
+    public static int checkPointY = 1333;
+   
+    
 
     public Hero() {
         super();
@@ -52,6 +57,10 @@ public class Hero extends Mover {
         
         velocityX *= drag;
         velocityY += acc;
+        if(isTouching(Lava.class))
+        {
+            
+        }
         if (velocityY > gravity) {
             velocityY = gravity;
         }
@@ -68,10 +77,11 @@ public class Hero extends Mover {
             
         }
         
-            /* if(isTouching(Lava.class))
-    {
-        getWorld().removeObject(this);
-    }*/
+       switch(frame1)
+       {
+           
+           
+        }
     }
     /*public void checkpoint()
     {
@@ -92,8 +102,11 @@ public class Hero extends Mover {
     }
     public void rightWalkingAnimation()
     {
-        if(frame == 0)
+        
+       
+         if(frame == 0)
         {
+            
             setImage(run1r);
         }
         else if(frame == 1)
@@ -110,6 +123,7 @@ public class Hero extends Mover {
         }
         else if(frame == 4)
         {
+            
             setImage(run5r);
         }
         else if(frame == 5)
@@ -136,40 +150,41 @@ public class Hero extends Mover {
        
          if(frame == 0)
         {
+            
             setImage(run1l);
-             getImage().mirrorHorizontally();
+             
              
         }
         else if(frame == 1)
         {
             setImage(run2l);
-             getImage().mirrorHorizontally();
+            
              
              
         }
         else if(frame == 2)
         {
             setImage(run3l);
-            getImage().mirrorHorizontally();
+            
             
              
         }
         else if(frame == 3)
         {
             setImage(run4l);
-             //getImage().mirrorHorizontally();
+           
              
         }
         else if(frame == 4)
         {
             setImage(run5l);
-             //getImage().mirrorHorizontally();
+            
              
         }
         else if(frame == 5)
         {
             setImage(run6l);
-            // getImage().mirrorHorizontally();
+            
               //setImage(run6l);
              
             frame = 0;
@@ -182,11 +197,14 @@ public class Hero extends Mover {
     }
     public void respawn()
     {
+       
         
-        if(flag() )
+        if(isTouching(Lava.class)&& isdown == true )
         {
             
-           setLocation(2754,1273);
+            checkPointX = 2762;
+            checkPointY = 1275;
+           setLocation(checkPointX,checkPointY);
            
         }
     }
@@ -203,11 +221,15 @@ public class Hero extends Mover {
         getWorld().removeObject(this);
     }
     }
-    public boolean flag()
+    /*public void Transport()
     {
-        Actor onder = getOneObjectAtOffset(0,getImage().getHeight()/2,greenflag.class);
-        return onder != null;
+        if(isTouching(door.class))
+        {
+            Greenfoot.setWorld(ws2);
+        }
     }
+    */
+   
     public String Position()
     {
        String myPosition = "X" + getX() + " " + "Y" + getY();
@@ -233,9 +255,9 @@ public class Hero extends Mover {
     }*/
     
     public void handleInput() {
-        if (Greenfoot.isKeyDown("up") && OnGround()) {
+        if (Greenfoot.isKeyDown("up")/* && OnGround()*/) {
             velocityY = -13;
-            RightWalk();
+           // RightWalk();
             
         }
         /* else
@@ -246,6 +268,10 @@ public class Hero extends Mover {
       {
           setImage("p1_jump.png");
         }
+        if(Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("right"))
+      {
+          setImage("p1_jump.png");
+        }
         if(OnGround())
         {
             setImage("p1_front.png");
@@ -253,17 +279,23 @@ public class Hero extends Mover {
 
         if (Greenfoot.isKeyDown("left")) {
             velocityX = -10;
-            getImage().mirrorHorizontally();
+            LeftWalk();
              //LeftWalk();
              //getImage().mirrorHorizontally();
             
             
-        } else if (Greenfoot.isKeyDown("right")) {
+        } else if (Greenfoot.isKeyDown("right") ) {
             velocityX = 10;
             //setImage("p1_walk01.png");
             //setImage("p1_walk05.png");
             //setImage("p1_walk04.png");
-            RightWalk();
+           RightWalk();
+             
+        }
+        if(Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("right"))
+        {
+           setImage("p1_jump.png");
+           velocityX = 10;
         }
         /*if( Greenfoot.isKeyDown("left") == true )
        {

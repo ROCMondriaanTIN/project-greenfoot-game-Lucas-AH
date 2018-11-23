@@ -25,6 +25,16 @@ public class door extends Tile
     {
         setImage("door_closedMid.png");
     }
+    for(Actor hero : getIntersectingObjects(Hero.class))
+    {
+    if(hero != null  && getWorld()instanceof MyWorld && (Greenfoot.isKeyDown("right")))
+    {
+       
+        World2 W2 = new World2();
+        Greenfoot.setWorld(W2);
+        break;
+    }
+}
 }
     
 }

@@ -247,8 +247,8 @@ tile = new Tile ("cloud2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
  tile.isSolid = true; 
  break;
  case 61:
-  tile = new Tile("coinGold.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
- tile.isSolid = true; 
+  tile = new goldCoin("coinGold.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+ 
  break;
  case 62:
   tile = new Tile("coinSilver.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);

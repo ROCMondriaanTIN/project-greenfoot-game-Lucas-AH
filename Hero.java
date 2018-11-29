@@ -15,7 +15,7 @@ public class Hero extends Mover {
       
     private String teller;
     private int y = 1;
-  
+  private int SupTeller;
     
     
   private int frame1 = 0;
@@ -60,7 +60,20 @@ public class Hero extends Mover {
            
             
         }
-        
+        if(isTouching(goldCoin.class))
+        {
+            SupTeller = 1;
+            
+        }
+        if(SupTeller == 1)
+        {
+            
+        }
+        if(SupTeller < 100 && Greenfoot.isKeyDown("up") )
+        {
+            SupTeller ++;
+            velocityY = -18;
+        }
        
     }
     
@@ -118,7 +131,7 @@ public class Hero extends Mover {
 
     
     public void handleInput() {
-        if (Greenfoot.isKeyDown("up")/* && OnGround()*/) {
+        if (Greenfoot.isKeyDown("up") && OnGround()) {
             velocityY = -13;
            
             

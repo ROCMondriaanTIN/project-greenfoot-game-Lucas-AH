@@ -387,9 +387,8 @@ tile = new Tile ("fishSwim2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT)
  tile.isSolid = true; 
  break;
  case 96:
-  tile = new Tile("flagGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
- tile.isSolid = true; 
- break;
+  tile = new greenflag("flagGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+  break;
  case 97:
   tile = new Tile("flagGreen2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
  tile.isSolid = true; 

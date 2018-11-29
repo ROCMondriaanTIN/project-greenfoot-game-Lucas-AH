@@ -65,14 +65,22 @@ public class Hero extends Mover {
             SupTeller = 1;
             
         }
-        if(SupTeller == 1)
-        {
-            
-        }
-        if(SupTeller < 100 && Greenfoot.isKeyDown("up") )
+        if(SupTeller >= 1 && Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("right"))
         {
             SupTeller ++;
-            velocityY = -18;
+            velocityY = -20;
+        }
+           
+            if(Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("right")&& OnGround())
+            {
+                velocityY = -20;
+            }
+        
+        
+        if(SupTeller == 10 )
+        {
+           
+            velocityY = -13;
         }
        
     }

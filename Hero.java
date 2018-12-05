@@ -16,6 +16,7 @@ public class Hero extends Mover {
     private String teller;
     private int y = 1;
   private int SupTeller;
+  private int SupTeller2;
     
     
   private int frame1 = 0;
@@ -40,7 +41,7 @@ public class Hero extends Mover {
         respawn();
         OnGround();
         
-        //RightWalk();
+        
         
         velocityX *= drag;
         velocityY += acc;
@@ -49,7 +50,9 @@ public class Hero extends Mover {
             velocityY = gravity;
         }
         applyVelocity();
-
+        
+        
+        
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 getWorld().removeObject(this);
@@ -65,7 +68,8 @@ public class Hero extends Mover {
             SupTeller = 1;
             
         }
-        if(SupTeller >= 1 && Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("right"))
+       
+        /*if(SupTeller >= 1 && Greenfoot.isKeyDown("up") )
         {
             SupTeller ++;
             velocityY = -20;
@@ -74,14 +78,20 @@ public class Hero extends Mover {
             if(Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("right")&& OnGround())
             {
                 velocityY = -20;
-            }
+            }*/
+        while(SupTeller == 1 && SupTeller2 < 100 && Greenfoot.isKeyDown("up") )
+        {
+           
+            SupTeller2 ++;
+            velocityY = -24;
         
+        }
         
-        if(SupTeller == 10 )
+        /*if(SupTeller == 10 )
         {
            
             velocityY = -13;
-        }
+        }*/
        
     }
     
@@ -89,12 +99,12 @@ public class Hero extends Mover {
     public void Animation()
     {
          String dir ="p1_walk";
-       if (y != 12)
+       if (y != 11)
         {
             teller = Integer.toString(y);
             y ++;
         }
-        else if(y == 12)
+        else if(y == 11)
         {
             y = 1;
         }
@@ -139,7 +149,8 @@ public class Hero extends Mover {
 
     
     public void handleInput() {
-        if (Greenfoot.isKeyDown("up") && OnGround()) {
+       
+        if (Greenfoot.isKeyDown("up") /*&& OnGround()*/) {
             velocityY = -13;
            
             

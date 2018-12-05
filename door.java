@@ -27,10 +27,10 @@ public class door extends Tile
     }
     for(Actor hero : getIntersectingObjects(Hero.class))
     {
-    if(hero != null  && getWorld()instanceof MyWorld && (Greenfoot.isKeyDown("right")))
+    if(hero != null  && getWorld()instanceof TheWorld && (Greenfoot.isKeyDown("right")))
     {
        
-        World2 W2 = new World2();
+        TheWorld2 W2 = new TheWorld2();
         Greenfoot.setWorld(W2);
         break;
     }

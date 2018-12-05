@@ -111,13 +111,14 @@ public class TheWorld2 extends World {
         // Declareren en initialiseren van een main karakter van het spel mijne heet Hero. Deze klasse 
         // moet de klasse Mover extenden voor de camera om te werken
         Hero hero = new Hero();
+        TheWorld tw = new TheWorld();
 
         // Laat de camera een object volgen. Die moet een Mover instatie zijn of een extentie hiervan.
         camera.follow(hero);
 
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
         addObject(camera, 0, 0);
-        addObject(hero, 291, 1500);
+        addObject(hero, 591, 1500);
         addObject(new Enemy(), 0, 0);
         
         

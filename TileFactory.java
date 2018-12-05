@@ -189,8 +189,8 @@ public class TileFactory {
  tile = new Tile("coinBronze.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
  tile.isSolid =true;  break;
  case 59:
- tile = new Tile("coinGold.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
- tile.isSolid =true;  break;
+ tile = new goldCoin("coinGold.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+   break;
  case 60:
  tile = new Tile("coinSilver.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
  tile.isSolid =true;  break;
@@ -294,10 +294,10 @@ public class TileFactory {
  tile = new Tile("flagBlueHanging.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
    break;
  case 94:
- tile = new Tile("flagGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+ tile = new greenflag("flagGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
    break;
  case 95:
- tile = new Tile("flagGreen2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+ tile = new Tile ("flagGreen2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
   break;
  case 96:
  tile = new Tile("flagGreenHanging.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
@@ -339,8 +339,8 @@ public class TileFactory {
  tile = new Tile("gemRed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
  tile.isSolid =true;  break;
  case 109:
- tile = new Tile("gemYellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
- tile.isSolid =true;  break;
+ tile = new YellowGem("gemYellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+   break;
  case 110:
  tile = new Tile("grass.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
  tile.isSolid =true;  break;

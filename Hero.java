@@ -19,7 +19,7 @@ public class Hero extends Mover {
   private int SupTeller2;
     
     
-  private int frame1 = 0;
+  
     private int animationCounter = 0;
     public static  int checkPointX = 1109;
     public static int checkPointY = 1333;
@@ -40,6 +40,9 @@ public class Hero extends Mover {
         handleInput();
         respawn();
         OnGround();
+        Speed();
+        flaggish();
+       
         
         
         
@@ -48,7 +51,7 @@ public class Hero extends Mover {
       
         if (velocityY > gravity) {
             velocityY = gravity;
-        }
+        }  
         applyVelocity();
         
         
@@ -57,13 +60,11 @@ public class Hero extends Mover {
             if (enemy != null) {
                 getWorld().removeObject(this);
                 break;
-            }
-         
-         
-           
-            
+            }  
         }
-        if(isTouching(goldCoin.class))
+        
+        
+       /* if(isTouching(goldCoin.class))
         {
             SupTeller = 1;
             
@@ -94,8 +95,40 @@ public class Hero extends Mover {
         }*/
        
     }
-    
-    
+    public void flaggish()
+    {
+        if(isTouching(greenflag.class))
+        {
+            setLocation(1344,313);
+        }
+    }
+    public void Speed()
+    {
+        if(isTouching(YellowGem.class))
+        {
+            SupTeller = 1;
+            
+            
+        }
+        if(SupTeller == 1)
+        {
+            SupTeller2 ++;
+        }
+        if(SupTeller == 1 && Greenfoot.isKeyDown("right"))
+        {
+            velocityX = 30;
+            
+        }
+        if(SupTeller == 1 && Greenfoot.isKeyDown("left"))
+        {
+            velocityX = -30;
+        }
+        if(SupTeller2 == 80)
+        {
+            SupTeller = 0;
+            SupTeller2 = 0;
+        }
+    }
     public void Animation()
     {
          String dir ="p1_walk";

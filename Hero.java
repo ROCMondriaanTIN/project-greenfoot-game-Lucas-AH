@@ -11,10 +11,10 @@ public class Hero extends Mover {
     private final double gravity;
     private final double acc;
     private final double drag;
-    
-      
-    private String teller;
-    private int y = 1;
+    private int xpos=634;
+    private int ypos= 313;  
+  private String teller;
+  private int y = 1;
   private int SupTeller;
   private int SupTeller2;
     
@@ -23,8 +23,9 @@ public class Hero extends Mover {
     private int animationCounter = 0;
     public static  int checkPointX = 1109;
     public static int checkPointY = 1333;
+    public static int  life = 3;
    
-    
+   
 
     public Hero() {
         super();
@@ -38,11 +39,12 @@ public class Hero extends Mover {
     public void act() {
         
         handleInput();
-        respawn();
+        //respawn();
         OnGround();
         Speed();
         flaggish();
-       
+        Life();
+        checkpoint();
         
         
         
@@ -56,44 +58,44 @@ public class Hero extends Mover {
         
         
         
-        for (Actor enemy : getIntersectingObjects(Enemy.class)) {
+       /* for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
-                getWorld().removeObject(this);
+                //getWorld().removeObject(this);
+                //addObject( new hero() ,634, 313);
+                setLocation(xpos,ypos);
                 break;
             }  
-        }
-        
-        
-       /* if(isTouching(goldCoin.class))
-        {
-            SupTeller = 1;
-            
-        }
-       
-        /*if(SupTeller >= 1 && Greenfoot.isKeyDown("up") )
-        {
-            SupTeller ++;
-            velocityY = -20;
-        }
-           
-            if(Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("right")&& OnGround())
-            {
-                velocityY = -20;
-            }*/
-        while(SupTeller == 1 && SupTeller2 < 100 && Greenfoot.isKeyDown("up") )
-        {
-           
-            SupTeller2 ++;
-            velocityY = -24;
-        
-        }
-        
-        /*if(SupTeller == 10 )
-        {
-           
-            velocityY = -13;
         }*/
        
+        
+   
+
+    }
+    public void checkpoint()
+    {
+        if(isTouching(Checkpoint.class))   
+        {
+             xpos=getX();
+             ypos=getY();
+        }
+    }
+    
+     public void Life()
+    {
+         if(isTouching(Enemy.class))
+        {
+            removeTouching(Hero.class);
+            
+            
+            //setLocation(xpos,ypos);
+            life -= 1;
+            Greenfoot.delay(100);
+        }
+          if(life == 0)
+        {
+            life = 4;
+        }
+         
     }
     public void flaggish()
     {
@@ -150,7 +152,7 @@ public class Hero extends Mover {
     {
        
         
-        if(isTouching(Lava.class) )
+        if(life == 0 )
         {
             
             checkPointX = 2762;
@@ -165,13 +167,7 @@ public class Hero extends Mover {
         return onder != null;
         
     }
-    public void Remove()
-    {
-         if(isTouching(Lava.class))
-    {
-        getWorld().removeObject(this);
-    }
-    }
+    
  
    
     public String Position()

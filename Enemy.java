@@ -12,7 +12,9 @@ public class Enemy extends Mover {
     private int xMax;
     private boolean firstAct;
     private int speed;
+    
 
+    Hero hero = new Hero();
     public Enemy() {
         super();
         setImage("pokerMad.png");
@@ -44,5 +46,6 @@ public class Enemy extends Mover {
             x = xMin;
             getImage().mirrorHorizontally();
         }
+        
     }
 }

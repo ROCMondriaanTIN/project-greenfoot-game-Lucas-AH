@@ -105,6 +105,11 @@ public class TheWorld extends World {
         addObject(new Enemy(), 1109, 3410);
         addObject(new Enemy(), 2109, 3410);
         addObject(new Enemy(), 1692, 3410);
+        addObject( new Life(), 485, 71);
+        addObject(new Rival(), 2547, 315);
+        Checkpoint cp = new Checkpoint();
+        addObject(cp, 2047,1515);
+        
         
         
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.

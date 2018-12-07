@@ -845,7 +845,9 @@ public class TileFactory {
  case 278:
  tile = new Tile("window.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
  tile.isSolid =true;  break;
- 
+ case 279:
+ tile = new Tile("hud_p2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+ tile.isSolid = true; break;
 
 
                  

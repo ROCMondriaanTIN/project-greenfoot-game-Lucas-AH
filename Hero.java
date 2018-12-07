@@ -24,6 +24,7 @@ public class Hero extends Mover {
     public static  int checkPointX = 1109;
     public static int checkPointY = 1333;
     public static int  life = 3;
+    
    
    
 
@@ -45,6 +46,7 @@ public class Hero extends Mover {
         flaggish();
         Life();
         checkpoint();
+        Over();
         
         
         
@@ -166,6 +168,15 @@ public class Hero extends Mover {
         Actor onder = getOneObjectAtOffset(0,getImage().getHeight()/2,Tile.class);
         return onder != null;
         
+    }
+    public void Over()
+    {
+        if(isTouching(Enemy.class))
+        {
+            
+        Greenfoot.setWorld(new GameOver());  
+        
+        }
     }
     
  
